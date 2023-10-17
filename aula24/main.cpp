@@ -36,10 +36,12 @@ class Estado{
 class Cidade{
     private:
         string nome;
-        vector <Estado*> estados;
+        Estado* estado;
     public:
-        Cidade(string _nome){
-            nome = _nome;
+        Cidade(string _nome, Estado* _estado){
+           nome = _nome;
+           estado = _estado;
+           
         }
         string getNome(){
             return nome;
@@ -48,18 +50,26 @@ class Cidade{
             nome = _nome;
         } 
 
-        void add_cidade(Estado *estado){
-            estados.push_back(estado);
+        Estado* getEstado() {
+        return estado;
         }
+
+        void setEstado(Estado* _estado) {
+        estado = _estado;
+        }
+
         void lista_cidade(){
-            cout << "Cidade" << endl;
-            for(Estado* e : estados){
-                cout << e->getNome() << endl;
-                cout << e->getUF() << endl;
-            }
+            cout << "Cidade: " <<  getNome() << endl;
+            cout << estado->getNome() << endl;
+            cout << estado->getUF() << endl;
+
         }   
 };
 int main(){
+    Estado estado("Bahia", "BA");
+    Cidade cidade("Salvador", &estado);
+
+    cidade.lista_cidade();
 
 
     return 0;

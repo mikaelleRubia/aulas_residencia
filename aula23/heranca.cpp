@@ -9,7 +9,7 @@ class Gen {
         int y;
     public:
         int z;
-}
+};
 
 class Esp: private Gen {
 
@@ -23,7 +23,7 @@ class Esp2: Esp {
 
         cout << "z: " << z << " y: " << y << endl;
     }
-}
+};
 
 int main()
 {
